@@ -1,18 +1,18 @@
-import os, sys
-
-from PIL import Image
+import sys
+from io import BytesIO
+# from PIL import Image
 from pdf2image import convert_from_path
-from pptx import Presentation
-from pptx.util import Inches
+import pptx
 from io import BytesIO
 
-pdf_file = sys.argv[1]
+pdf_file = 'SOX Overview Guide.pdf'
+#pdf_file = sys.argv[1]
 print()
 print("Converting file: " + pdf_file)
 print()
 
 # Prep presentation
-prs = Presentation()
+prs = pptx.Presentation()
 blank_slide_layout = prs.slide_layouts[6]
 
 # Create working folder
@@ -48,4 +48,4 @@ print()
 print("Saving file: " + base_name + ".pptx")
 prs.save(base_name + '.pptx')
 print("Conversion complete. :)")
-print()
+print("\n")
